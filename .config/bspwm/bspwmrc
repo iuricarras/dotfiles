@@ -27,7 +27,7 @@ BSPWM_PFC='#a1efd3'
 
 ## Bspwm appearance
 BSPWM_BORDER='2'
-BSPWM_GAP='10'
+BSPWM_GAP='4'
 BSPWM_SRATIO='0.50'
 
 ## Configurations --------------------------------------------#
@@ -129,7 +129,7 @@ for i in ${vms[@]}; do
    bspc rule -a $i desktop='^6' follow=on focus=on; done
 
 ## 7 > communication (always open communication apps on workspace-7)
-declare -a comm=(Thunderbird TelegramDesktop Hexchat)
+declare -a comm=(Thunderbird TelegramDesktop Hexchat vesktop)
 for i in ${comm[@]}; do
    bspc rule -a $i desktop='^7' follow=on focus=on; done
 
