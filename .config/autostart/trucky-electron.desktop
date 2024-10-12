@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=trucky-electron
-Comment=trucky-electronstartup script
-Exec=/home/iuricarras/.cache/appimage-run/229fddc28272bc9ef3c980fb616f049fbcddcee2ade3da30cd8e40ffac8d6422/trucky-electron
-StartupNotify=false
-Terminal=false
