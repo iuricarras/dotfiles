@@ -37,7 +37,7 @@ BSPWM_SRATIO='0.50'
 ## Default Setup (Set 8 workspaces on each monitor)
 default_workspaces() {
 	for monitor in `xrandr -q | grep -w 'connected' | cut -d' ' -f1`; do
-		bspc monitor "$monitor" -d '' '' '' '' '' '' '' '' ''
+		bspc monitor "$monitor" -d '' '' '' '' '' '' '' '' '' ''
 	done
 }
 
@@ -123,29 +123,34 @@ libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice)
 for i in ${office[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
 
-## 6 > virtual machines
-declare -a vms=(Vmware GNS3)
-for i in ${vms[@]}; do
+## 7 > gns
+declare -a gns=(GNS3)
+for i in ${gns[@]}; do
    bspc rule -a $i desktop='^6' follow=on focus=on; done
 
-## 7 > communication (always open communication apps on workspace-7)
-declare -a comm=(Thunderbird TelegramDesktop Hexchat vesktop teams-for-linux)
-for i in ${comm[@]}; do
+## 7 > virtual machines
+declare -a vms=(Vmware)
+for i in ${vms[@]}; do
    bspc rule -a $i desktop='^7' follow=on focus=on; done
 
-## 8 > media (always open media apps on workspace-8)
+## 8 > communication (always open communication apps on workspace-7)
+declare -a comm=(Thunderbird TelegramDesktop Hexchat vesktop teams-for-linux)
+for i in ${comm[@]}; do
+   bspc rule -a $i desktop='^8' follow=on focus=on; done
+
+## 9 > media (always open media apps on workspace-8)
 declare -a media=(Audacity Music MPlayer Lxmusic Inkscape Gimp-2.10 obs)
 for i in ${media[@]}; do
-   bspc rule -a $i desktop='^8' state=floating follow=on focus=on; done
+   bspc rule -a $i desktop='^9' state=floating follow=on focus=on; done
 
-## 9 > system (always open system apps on workspace-9)
-bspc rule -a 'VirtualBox Manager' desktop='^9' follow=on focus=on
-bspc rule -a GParted desktop='^9' follow=on focus=on
+## 10 > system (always open system apps on workspace-9)
+bspc rule -a 'VirtualBox Manager' desktop='^10' follow=on focus=on
+bspc rule -a GParted desktop='^10' follow=on focus=on
 declare -a settings=(Lxappearance Lxtask Lxrandr Arandr \
 System-config-printer.py Pavucontrol Exo-helper-1 \
 Xfce4-power-manager-settings)
 for i in ${settings[@]}; do
-   bspc rule -a $i desktop='^9' state=floating follow=on focus=on; done
+   bspc rule -a $i desktop='^10' state=floating follow=on focus=on; done
 
 ## Always Floating Apps
 declare -a floating=(alacritty-float Pcmanfm Onboard Yad 'Firefox:Places' \
